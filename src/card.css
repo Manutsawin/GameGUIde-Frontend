@@ -1,0 +1,28 @@
+.card{
+  margin-top: 100px;
+  padding: 20px;
+  background-color: black;
+  border-radius: 1px;
+  opacity: 0.6;
+}
+.cardHomeRight{
+
+  /* background-image: url(https://pbs.twimg.com/media/EtSqDxgVoAASi0f.jpg); */
+  background-size: 645px 610px;
+  height: 100%;
+  border-radius: 1px;
+  margin: 50px;
+  overflow: auto;
+}
+.cardHero{
+  height: 90%;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1px;
+}
+.imghero{
+  height: 200px;
+  width: 200px;
+  
+}

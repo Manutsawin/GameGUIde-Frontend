@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -35,4 +35,89 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+.snip1143 {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.snip1143 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1143 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+.snip1143 a {
+  padding: 0.3em 0;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.snip1143 a:before,
+.snip1143 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1143 a:before {
+  top: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #c0392b;
+}
+.snip1143 a:after {
+  padding: 0.3em 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: white;
+  white-space: nowrap;
+}
+.snip1143 li:hover a,
+.snip1143 .current a {
+  transform: translateY(-100%);
+}
+  /* Demo purposes only */
+
+
+
+/* Demo purposes only */
+html {
+  height: 100%;
+}
+body {
+  /* background-color: #212121; */
+  background: linear-gradient(100.38deg, rgba(12, 5, 8, 0.658) 100%, rgba(175, 70, 189, 0.71) 0%),url(https://i.pinimg.com/originals/32/a0/d0/32a0d00abe00bbc04008e8dd27bc8080.jpg);
+  /* background-image: url(https://i.pinimg.com/originals/32/a0/d0/32a0d00abe00bbc04008e8dd27bc8080.jpg); */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-flow: wrap;
+  margin: 0; */
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.text-white{
+  color: rgba(255, 255, 255, 0.74);
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+.closeBt:hover{
+  cursor: pointer;
 }
