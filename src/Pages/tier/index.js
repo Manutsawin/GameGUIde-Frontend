@@ -44,12 +44,14 @@ const Tier  = () => {
                             <li><a href="/item" data-hover="Item">Item</a></li>
                             <li><a href="/enchemtment" data-hover="Enchemtment">Enchemtment</a></li>
                             <li><a href="/contact" data-hover="Contact">Contact</a></li>
+                            <li></li>
                         </ul>
                         
                     </div>
                 </Col>
                 <Col md={2}>
                     {statusLogin?(<div><h5 align="center" className='text-white' >| user : {user} |</h5></div>):(<div><h5 align="left" className='text-white' >| not logged in |</h5></div>)}
+                    <a href="/" onClick={()=>{localStorage.clear()}} data-hover="Logout">Logout</a>
                 </Col>
             </Row>
             {anableLogin?

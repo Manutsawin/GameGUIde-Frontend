@@ -50,6 +50,7 @@ const Home  = () => {
                 </Col>
                 <Col md={2}>
                     {statusLogin?(<div><h5 align="center" className='text-white' >| user : {user} |</h5></div>):(<div><h5 align="left" className='text-white' >| not logged in |</h5></div>)}
+                    <a href="/" onClick={()=>{localStorage.clear()}} data-hover="Logout">Logout</a>
                 </Col>
             </Row>
             {anableLogin?

@@ -15,14 +15,36 @@
   overflow: auto;
 }
 .cardHero{
-  height: 90%;
+  height: 700px;
   margin-top: 50px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .imghero{
   height: 200px;
   width: 200px;
   
+}
+.smallPic{
+  height: 50px;
+  width: 50px;
+  text-align: left;
+  text-decoration:none
+}
+.smallCardHero{
+  background: rgba(255, 255, 255, 0.144);
+  padding: 1px;
+  margin: 20px;
+  text-decoration:none
+}
+.textNameSmall{
+  padding:9px;
+  margin: 1;
+  text-decoration:none
+}
+.smallCardHero:hover{
+  cursor: pointer;
 }

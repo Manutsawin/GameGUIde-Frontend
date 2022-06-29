@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row,Col,Container,Form,InputGroup,FormControl} from 'react-bootstrap';
 import axios from 'axios'
+import SmallCardHero from '../../components/smallCardHero'
 
 const Hero  = () => {
     const token=localStorage.getItem("token")
@@ -12,6 +13,8 @@ const Hero  = () => {
     const [inputRole2,setInputRole2] = React.useState("");
     const [inputRange,setInputRange] = React.useState("");
     const [imgHero,setImgHero] = React.useState("");
+    const [allHero,setAllHero] = React.useState([]);
+    const [load,setLoad] = React.useState(false);
 
     function insertHero(){
 
@@ -28,15 +31,29 @@ const Hero  = () => {
                 'Authorization': 'Bearer ' + token,   
             },
         }).then((res)=>{
-            console.log(res.data)  
+            console.log(res.data)
+            getAllHero()  
+        }).catch((e) => {
+            console.log(e.response.data.message);
+        });
+    }
+
+    function getAllHero(){
+        axios.get("http://localhost:2000/api/getAllHero",).then((res)=>{ 
+            setAllHero(res.data.projects)
+            setLoad(true)
         }).catch((e) => {
             console.log(e.response.data.message);
         });
     }
 
     React.useEffect(()=>{
-        console.log(imgHero)
-    }, [imgHero]);
+        getAllHero()
+    }, []);
+
+    React.useEffect(()=>{
+        console.log(allHero)
+    }, [allHero]);
 
 
     return (
@@ -58,6 +75,7 @@ const Hero  = () => {
                 </Col>
                 <Col md={2}>
                     {statusLogin?(<div><h5 align="center" className='text-white' >| user : {user} |</h5></div>):(<div><h5 align="left" className='text-white' >| not logged in |</h5></div>)}
+                    <a href="/" onClick={()=>{localStorage.clear()}} data-hover="Logout">Logout</a>
                 </Col>
             </Row>
             {anableInsert?
@@ -94,14 +112,15 @@ const Hero  = () => {
                                 <option value="">กรุณาเลือกคลาส</option>
                                 <option value="CARRY">CARRY</option>
                                 <option value="ASSASIN">ASSASIN</option>
-                                <option value="SUPPORT">SUPPORT</option>
+                                <option value="TANK">TANK</option>
                             </Form.Select>
                             <br></br>
                             <Form.Select aria-label="Default select example"  onChange={(e)=>{setInputRole2(e.target.value)}}>
                                 <option value="">กรุณาเลือกคลาส</option>
-                                <option value="CARRY">MAGE</option>
-                                <option value="ASSASIN">FIGHTER</option>
-                                <option value="SUPPORT">TANK</option>
+                                <option value="MAGE">MAGE</option>
+                                <option value="FIGHTER">FIGHTER</option>
+                                <option value="SUPPORT">SUPPORT</option>
+                               
                             </Form.Select>
                             <div>
                                     <b onClick={()=>{insertHero()}}>
@@ -130,16 +149,20 @@ const Hero  = () => {
             :(<div>
                 <Container>
                 <Row>
-                    <Col md={10}>
-                            <div className='cardHero' align="center">
-                                <h1 className='text-white' align="left">Create your own way <br></br>of playing.</h1><br></br>
-                                <h5 className='text-white' align="left">
-                                    Create your own set of items
-                                    to your hero.<br></br><br></br>
-                                    Manage hero tier.<br></br><br></br>
-                                    Share your play with others.<br></br><br></br>
-                                    more access.
-                                </h5>
+                    <Col md={12}>
+                            <div className='cardHero' align="left">
+                                {load? (
+                                <div>
+                                    <Row>
+                                    {allHero.map((hero) => (
+                                        
+                                        <Col md={3}>
+                                            <SmallCardHero style={{ textDecoration: 'none'}} hero={hero}></SmallCardHero>
+                                        </Col>
+                                        
+                                    ))}  
+                                    </Row>
+                                </div>):(<div></div>)}
                             </div>
                             <div align="right">
                                 {statusLogin?(
