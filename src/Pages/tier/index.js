@@ -61,7 +61,7 @@ const Tier  = () => {
 
     function createTier(){
         console.log(inputDark)
-        axios.post("http://localhost:2000/api/tier",{
+        axios.post("https://rov-guide-backend.herokuapp.com/api/tier",{
             owner: "test",
             nameTier: "test2",
             idUser: "1",
@@ -85,7 +85,7 @@ const Tier  = () => {
     }
 
     function getAllHero(){
-        axios.get("http://localhost:2000/api/getAllHero",).then((res)=>{ 
+        axios.get("https://rov-guide-backend.herokuapp.com/api/getAllHero",).then((res)=>{ 
             setAllHero(res.data.projects)
             setLoad(true)
         }).catch((e) => {

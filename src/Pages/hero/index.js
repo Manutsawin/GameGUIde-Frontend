@@ -25,7 +25,7 @@ const Hero  = () => {
         formData.append("role",inputRole2)
         formData.append("img",imgHero)
 
-        axios.post("http://localhost:2000/api/addHero",formData,
+        axios.post("https://rov-guide-backend.herokuapp.com/api/addHero",formData,
         {
             headers: {
                 'Authorization': 'Bearer ' + token,   
@@ -39,7 +39,7 @@ const Hero  = () => {
     }
 
     function getAllHero(){
-        axios.get("http://localhost:2000/api/getAllHero",).then((res)=>{ 
+        axios.get("https://rov-guide-backend.herokuapp.com/api/getAllHero",).then((res)=>{ 
             setAllHero(res.data.projects)
             setLoad(true)
         }).catch((e) => {

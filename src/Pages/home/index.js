@@ -13,7 +13,7 @@ const Home  = () => {
     function logIn(){
         console.log("555")
         axios
-        .post("http://localhost:2000/api/auth/signin",{
+        .post("https://rov-guide-backend.herokuapp.com/api/auth/signin",{
             username:inputUserName,
             password:inputPassword,
         }).then((res)=>{
